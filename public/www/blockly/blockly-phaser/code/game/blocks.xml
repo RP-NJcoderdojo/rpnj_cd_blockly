@@ -1,0 +1,524 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="phaser_game" id="1" inline="true" x="-48" y="-469">
+    <value name="width">
+      <block type="math_number" id="2">
+        <field name="NUM">800</field>
+      </block>
+    </value>
+    <value name="height">
+      <block type="math_number" id="3">
+        <field name="NUM">600</field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" id="4" x="769" y="-488">
+    <mutation></mutation>
+    <field name="NAME">preload</field>
+    <statement name="STACK">
+      <block type="phaser_load_tilemap" id="5" inline="false">
+        <field name="NAME">Phaser.Tilemap.TILED_JSON</field>
+        <value name="id">
+          <block type="text" id="6">
+            <field name="TEXT">map</field>
+          </block>
+        </value>
+        <value name="mapfile">
+          <block type="text" id="7">
+            <field name="TEXT">../assets/collision_test.json</field>
+          </block>
+        </value>
+        <next>
+          <block type="phaser_loadimage" id="8" inline="false">
+            <value name="name">
+              <block type="text" id="9">
+                <field name="TEXT">ground_1x1</field>
+              </block>
+            </value>
+            <value name="img_src">
+              <block type="text" id="10">
+                <field name="TEXT">../assets/ground_1x1.png</field>
+              </block>
+            </value>
+            <next>
+              <block type="phaser_load_spritesheet" id="11" inline="false">
+                <value name="id">
+                  <block type="text" id="12">
+                    <field name="TEXT">ss</field>
+                  </block>
+                </value>
+                <value name="img_src">
+                  <block type="text" id="13">
+                    <field name="TEXT">../assets/arnie_spritexb.png</field>
+                  </block>
+                </value>
+                <value name="width">
+                  <block type="math_number" id="14">
+                    <field name="NUM">32</field>
+                  </block>
+                </value>
+                <value name="height">
+                  <block type="math_number" id="15">
+                    <field name="NUM">48</field>
+                  </block>
+                </value>
+                <value name="num_frames">
+                  <block type="math_number" id="16">
+                    <field name="NUM">16</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="17" x="-48" y="-409">
+    <mutation></mutation>
+    <field name="NAME">update</field>
+    <statement name="STACK">
+      <block type="controls_if" id="18" inline="false">
+        <mutation elseif="1" else="1"></mutation>
+        <value name="IF0">
+          <block type="phaser_get_curs_key_state" id="19">
+            <field name="c_key">left</field>
+            <field name="state">isDown</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="phaser_play_animation" id="20" inline="true">
+            <field name="anim_id">left</field>
+            <field name="game_obj">player</field>
+            <value name="framerate">
+              <block type="math_number" id="21">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+            <value name="loop">
+              <block type="logic_boolean" id="22">
+                <field name="BOOL">TRUE</field>
+              </block>
+            </value>
+            <next>
+              <block type="phaser_set_game_obj_props" id="23" inline="true">
+                <field name="game_obj">player</field>
+                <field name="prop">x</field>
+                <value name="prop_val">
+                  <block type="math_arithmetic" id="24" inline="true">
+                    <field name="OP">MINUS</field>
+                    <value name="A">
+                      <block type="phaser_get_game_obj_props" id="25">
+                        <field name="game_obj">player</field>
+                        <field name="prop">x</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="26">
+                        <field name="NUM">3</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="phaser_get_curs_key_state" id="27">
+            <field name="c_key">right</field>
+            <field name="state">isDown</field>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="phaser_play_animation" id="28" inline="true">
+            <field name="anim_id">right</field>
+            <field name="game_obj">player</field>
+            <value name="framerate">
+              <block type="math_number" id="29">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+            <value name="loop">
+              <block type="logic_boolean" id="30">
+                <field name="BOOL">TRUE</field>
+              </block>
+            </value>
+            <next>
+              <block type="phaser_set_game_obj_props" id="31" inline="true">
+                <field name="game_obj">player</field>
+                <field name="prop">x</field>
+                <value name="prop_val">
+                  <block type="math_arithmetic" id="32" inline="true">
+                    <field name="OP">ADD</field>
+                    <value name="A">
+                      <block type="phaser_get_game_obj_props" id="33">
+                        <field name="game_obj">player</field>
+                        <field name="prop">x</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="34">
+                        <field name="NUM">3</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="controls_if" id="35" inline="false">
+            <mutation elseif="1" else="1"></mutation>
+            <value name="IF0">
+              <block type="phaser_get_curs_key_state" id="36">
+                <field name="c_key">up</field>
+                <field name="state">isDown</field>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="phaser_play_animation" id="37" inline="true">
+                <field name="anim_id">up</field>
+                <field name="game_obj">player</field>
+                <value name="framerate">
+                  <block type="math_number" id="38">
+                    <field name="NUM">10</field>
+                  </block>
+                </value>
+                <value name="loop">
+                  <block type="logic_boolean" id="39">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="phaser_set_game_obj_props" id="40" inline="true">
+                    <field name="game_obj">player</field>
+                    <field name="prop">y</field>
+                    <value name="prop_val">
+                      <block type="math_arithmetic" id="41" inline="true">
+                        <field name="OP">MINUS</field>
+                        <value name="A">
+                          <block type="phaser_get_game_obj_props" id="42">
+                            <field name="game_obj">player</field>
+                            <field name="prop">y</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="43">
+                            <field name="NUM">3</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <value name="IF1">
+              <block type="phaser_get_curs_key_state" id="44">
+                <field name="c_key">down</field>
+                <field name="state">isDown</field>
+              </block>
+            </value>
+            <statement name="DO1">
+              <block type="phaser_play_animation" id="45" inline="true">
+                <field name="anim_id">down</field>
+                <field name="game_obj">player</field>
+                <value name="framerate">
+                  <block type="math_number" id="46">
+                    <field name="NUM">10</field>
+                  </block>
+                </value>
+                <value name="loop">
+                  <block type="logic_boolean" id="47">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="phaser_set_game_obj_props" id="48" inline="true">
+                    <field name="game_obj">player</field>
+                    <field name="prop">y</field>
+                    <value name="prop_val">
+                      <block type="math_arithmetic" id="49" inline="true">
+                        <field name="OP">ADD</field>
+                        <value name="A">
+                          <block type="phaser_get_game_obj_props" id="50">
+                            <field name="game_obj">player</field>
+                            <field name="prop">y</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="51">
+                            <field name="NUM">3</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="phaser_play_animation" id="52" inline="true">
+                <field name="anim_id">idle</field>
+                <field name="game_obj">player</field>
+                <value name="framerate">
+                  <block type="math_number" id="53">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="loop">
+                  <block type="logic_boolean" id="54">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="55" x="837" y="-92">
+    <mutation></mutation>
+    <field name="NAME">create</field>
+    <statement name="STACK">
+      <block type="phaser_set_bg_color" id="56">
+        <field name="bg_color">#336666</field>
+        <next>
+          <block type="variables_set" id="57" inline="true">
+            <field name="VAR">map</field>
+            <value name="VALUE">
+              <block type="phaser_add_tilemap" id="58" inline="true">
+                <value name="id">
+                  <block type="text" id="59">
+                    <field name="TEXT">map</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="phaser_add_map_tileset" id="60" inline="true">
+                <field name="game_obj">map</field>
+                <value name="id">
+                  <block type="text" id="61">
+                    <field name="TEXT">ground_1x1</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="62" inline="true">
+                    <field name="VAR">layer</field>
+                    <value name="VALUE">
+                      <block type="phaser_create_maplayer" id="63" inline="true">
+                        <field name="game_obj">map</field>
+                        <value name="id">
+                          <block type="text" id="64">
+                            <field name="TEXT">Tile Layer 1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="phaser_resize_world_layer" id="65">
+                        <field name="game_obj">layer</field>
+                        <next>
+                          <block type="variables_set" id="66" inline="true">
+                            <field name="VAR">cursors</field>
+                            <value name="VALUE">
+                              <block type="phaser_add_cursor_keys" id="67"></block>
+                            </value>
+                            <next>
+                              <block type="variables_set" id="68" inline="true">
+                                <field name="VAR">player</field>
+                                <value name="VALUE">
+                                  <block type="phaser_addsprite" id="69" inline="false">
+                                    <value name="x">
+                                      <block type="phaser_world_center_x" id="70"></block>
+                                    </value>
+                                    <value name="y">
+                                      <block type="phaser_world_center_y" id="71"></block>
+                                    </value>
+                                    <value name="id">
+                                      <block type="text" id="72">
+                                        <field name="TEXT">ss</field>
+                                      </block>
+                                    </value>
+                                    <value name="image_src">
+                                      <block type="math_number" id="73">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="phaser_obj_body_props" id="74" inline="true">
+                                    <field name="game_obj">player</field>
+                                    <field name="prop">collideWorldBounds</field>
+                                    <value name="prop_val">
+                                      <block type="logic_boolean" id="75">
+                                        <field name="BOOL">TRUE</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="phaser_camera_follow" id="76">
+                                        <field name="game_obj">player</field>
+                                        <next>
+                                          <block type="phaser_add_animation" id="77" inline="true">
+                                            <field name="anim_id">idle</field>
+                                            <field name="game_obj">player</field>
+                                            <value name="frames">
+                                              <block type="lists_create_with" id="78" inline="false">
+                                                <mutation items="1"></mutation>
+                                                <value name="ADD0">
+                                                  <block type="math_number" id="79">
+                                                    <field name="NUM">0</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="phaser_add_animation" id="80" inline="true">
+                                                <field name="anim_id">down</field>
+                                                <field name="game_obj">player</field>
+                                                <value name="frames">
+                                                  <block type="lists_create_with" id="81" inline="false">
+                                                    <mutation items="4"></mutation>
+                                                    <value name="ADD0">
+                                                      <block type="math_number" id="82">
+                                                        <field name="NUM">0</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="ADD1">
+                                                      <block type="math_number" id="83">
+                                                        <field name="NUM">1</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="ADD2">
+                                                      <block type="math_number" id="84">
+                                                        <field name="NUM">2</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="ADD3">
+                                                      <block type="math_number" id="85">
+                                                        <field name="NUM">3</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="phaser_add_animation" id="86" inline="true">
+                                                    <field name="anim_id">left</field>
+                                                    <field name="game_obj">player</field>
+                                                    <value name="frames">
+                                                      <block type="lists_create_with" id="87" inline="false">
+                                                        <mutation items="4"></mutation>
+                                                        <value name="ADD0">
+                                                          <block type="math_number" id="88">
+                                                            <field name="NUM">4</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="ADD1">
+                                                          <block type="math_number" id="89">
+                                                            <field name="NUM">5</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="ADD2">
+                                                          <block type="math_number" id="90">
+                                                            <field name="NUM">6</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="ADD3">
+                                                          <block type="math_number" id="91">
+                                                            <field name="NUM">7</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="phaser_add_animation" id="92" inline="true">
+                                                        <field name="anim_id">right</field>
+                                                        <field name="game_obj">player</field>
+                                                        <value name="frames">
+                                                          <block type="lists_create_with" id="93" inline="false">
+                                                            <mutation items="4"></mutation>
+                                                            <value name="ADD0">
+                                                              <block type="math_number" id="94">
+                                                                <field name="NUM">8</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="ADD1">
+                                                              <block type="math_number" id="95">
+                                                                <field name="NUM">9</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="ADD2">
+                                                              <block type="math_number" id="96">
+                                                                <field name="NUM">10</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="ADD3">
+                                                              <block type="math_number" id="97">
+                                                                <field name="NUM">11</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="phaser_add_animation" id="98" inline="true">
+                                                            <field name="anim_id">up</field>
+                                                            <field name="game_obj">player</field>
+                                                            <value name="frames">
+                                                              <block type="lists_create_with" id="99" inline="false">
+                                                                <mutation items="4"></mutation>
+                                                                <value name="ADD0">
+                                                                  <block type="math_number" id="100">
+                                                                    <field name="NUM">12</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="ADD1">
+                                                                  <block type="math_number" id="101">
+                                                                    <field name="NUM">13</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="ADD2">
+                                                                  <block type="math_number" id="102">
+                                                                    <field name="NUM">14</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="ADD3">
+                                                                  <block type="math_number" id="103">
+                                                                    <field name="NUM">15</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

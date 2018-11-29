@@ -1,0 +1,694 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="phaser_game" id="1" inline="true" x="-99" y="-21">
+    <value name="width">
+      <block type="math_number" id="2">
+        <field name="NUM">800</field>
+      </block>
+    </value>
+    <value name="height">
+      <block type="math_number" id="3">
+        <field name="NUM">600</field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" id="4" x="608" y="-38">
+    <mutation></mutation>
+    <field name="NAME">create</field>
+    <statement name="STACK">
+      <block type="variables_set" id="5" inline="true">
+        <field name="VAR">is_firing</field>
+        <value name="VALUE">
+          <block type="logic_boolean" id="6">
+            <field name="BOOL">FALSE</field>
+          </block>
+        </value>
+        <next>
+          <block type="phaser_set_bg_color" id="7">
+            <field name="bg_color">#333399</field>
+            <next>
+              <block type="phaser_startphysics" id="8">
+                <field name="phys_type">Phaser.Physics.ARCADE</field>
+                <next>
+                  <block type="phaser_set_phys_sys_props" id="9" inline="true">
+                    <field name="prop">gravity.y</field>
+                    <field name="phys_type">arcade</field>
+                    <value name="prop_val">
+                      <block type="math_number" id="10">
+                        <field name="NUM">250</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="11" inline="true">
+                        <field name="VAR">p</field>
+                        <value name="VALUE">
+                          <block type="phaser_addsprite" id="12" inline="true">
+                            <value name="x">
+                              <block type="math_number" id="13">
+                                <field name="NUM">32</field>
+                              </block>
+                            </value>
+                            <value name="y">
+                              <block type="math_number" id="14">
+                                <field name="NUM">32</field>
+                              </block>
+                            </value>
+                            <value name="id">
+                              <block type="text" id="15">
+                                <field name="TEXT">ss</field>
+                              </block>
+                            </value>
+                            <value name="image_src">
+                              <block type="math_number" id="16">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="phaser_enablephysics" id="17">
+                            <field name="gameObj">p</field>
+                            <field name="phys_type">ARCADE</field>
+                            <next>
+                              <block type="phaser_set_obj_body_props" id="18" inline="true">
+                                <field name="prop">collideWorldBounds</field>
+                                <field name="game_obj">p</field>
+                                <value name="prop_val">
+                                  <block type="logic_boolean" id="19">
+                                    <field name="BOOL">TRUE</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="phaser_set_obj_body_props" id="20" inline="true">
+                                    <field name="prop">allowGravity</field>
+                                    <field name="game_obj">p</field>
+                                    <value name="prop_val">
+                                      <block type="logic_boolean" id="21">
+                                        <field name="BOOL">FALSE</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="phaser_set_obj_body_props" id="22" inline="true">
+                                        <field name="prop">bounce</field>
+                                        <field name="game_obj">p</field>
+                                        <value name="prop_val">
+                                          <block type="math_number" id="23">
+                                            <field name="NUM">0.2</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="phaser_camera_follow" id="24">
+                                            <field name="game_obj">p</field>
+                                            <next>
+                                              <block type="variables_set" id="25" inline="true">
+                                                <field name="VAR">cursors</field>
+                                                <value name="VALUE">
+                                                  <block type="phaser_add_cursor_keys" id="26"></block>
+                                                </value>
+                                                <next>
+                                                  <block type="phaser_add_animation" id="27" inline="true">
+                                                    <field name="anim_id">idle</field>
+                                                    <field name="game_obj">p</field>
+                                                    <value name="frames">
+                                                      <block type="lists_create_with" id="28" inline="false">
+                                                        <mutation items="1"></mutation>
+                                                        <value name="ADD0">
+                                                          <block type="math_number" id="29">
+                                                            <field name="NUM">130</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="phaser_add_animation_range" id="30" inline="true">
+                                                        <field name="anim_id">up</field>
+                                                        <field name="game_obj">p</field>
+                                                        <value name="framestart">
+                                                          <block type="math_number" id="31">
+                                                            <field name="NUM">104</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="frameend">
+                                                          <block type="math_number" id="32">
+                                                            <field name="NUM">112</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="phaser_add_animation_range" id="33" inline="true">
+                                                            <field name="anim_id">left</field>
+                                                            <field name="game_obj">p</field>
+                                                            <value name="framestart">
+                                                              <block type="math_number" id="34">
+                                                                <field name="NUM">117</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="frameend">
+                                                              <block type="math_number" id="35">
+                                                                <field name="NUM">125</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="phaser_add_animation_range" id="36" inline="true">
+                                                                <field name="anim_id">down</field>
+                                                                <field name="game_obj">p</field>
+                                                                <value name="framestart">
+                                                                  <block type="math_number" id="37">
+                                                                    <field name="NUM">130</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="frameend">
+                                                                  <block type="math_number" id="38">
+                                                                    <field name="NUM">138</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="phaser_add_animation_range" id="39" inline="true">
+                                                                    <field name="anim_id">right</field>
+                                                                    <field name="game_obj">p</field>
+                                                                    <value name="framestart">
+                                                                      <block type="math_number" id="40">
+                                                                        <field name="NUM">143</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="frameend">
+                                                                      <block type="math_number" id="41">
+                                                                        <field name="NUM">151</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="phaser_add_animation_range" id="42" inline="true">
+                                                                        <field name="anim_id">fireUp</field>
+                                                                        <field name="game_obj">p</field>
+                                                                        <value name="framestart">
+                                                                          <block type="math_number" id="43">
+                                                                            <field name="NUM">208</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="frameend">
+                                                                          <block type="math_number" id="44">
+                                                                            <field name="NUM">220</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="phaser_add_animation_range" id="45" inline="true">
+                                                                            <field name="anim_id">fireRight</field>
+                                                                            <field name="game_obj">p</field>
+                                                                            <value name="framestart">
+                                                                              <block type="math_number" id="46">
+                                                                                <field name="NUM">247</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="frameend">
+                                                                              <block type="math_number" id="47">
+                                                                                <field name="NUM">258</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <next>
+                                                                              <block type="phaser_add_animation_range" id="48" inline="true">
+                                                                                <field name="anim_id">fireDown</field>
+                                                                                <field name="game_obj">p</field>
+                                                                                <value name="framestart">
+                                                                                  <block type="math_number" id="49">
+                                                                                    <field name="NUM">234</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <value name="frameend">
+                                                                                  <block type="math_number" id="50">
+                                                                                    <field name="NUM">245</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <next>
+                                                                                  <block type="phaser_add_animation_range" id="51" inline="true">
+                                                                                    <field name="anim_id">fireLeft</field>
+                                                                                    <field name="game_obj">p</field>
+                                                                                    <value name="framestart">
+                                                                                      <block type="math_number" id="52">
+                                                                                        <field name="NUM">221</field>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <value name="frameend">
+                                                                                      <block type="math_number" id="53">
+                                                                                        <field name="NUM">232</field>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <next>
+                                                                                      <block type="variables_set" id="54" inline="true">
+                                                                                        <field name="VAR">fireKey</field>
+                                                                                        <value name="VALUE">
+                                                                                          <block type="phaser_add_a_key" id="55">
+                                                                                            <field name="key">Phaser.Keyboard.SPACEBAR</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <next>
+                                                                                          <block type="phaser_input_add" id="56">
+                                                                                            <field name="game_obj">fireKey</field>
+                                                                                            <field name="evt">onDown</field>
+                                                                                            <field name="callback">fire_weapon</field>
+                                                                                            <next>
+                                                                                              <block type="phaser_input_add" id="57">
+                                                                                                <field name="game_obj">fireKey</field>
+                                                                                                <field name="evt">onUp</field>
+                                                                                                <field name="callback">stop_fire_weapon</field>
+                                                                                              </block>
+                                                                                            </next>
+                                                                                          </block>
+                                                                                        </next>
+                                                                                      </block>
+                                                                                    </next>
+                                                                                  </block>
+                                                                                </next>
+                                                                              </block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="58" x="-80" y="68">
+    <mutation></mutation>
+    <field name="NAME">preload</field>
+    <statement name="STACK">
+      <block type="phaser_load_spritesheet" id="59" inline="false">
+        <value name="id">
+          <block type="text" id="60">
+            <field name="TEXT">ss</field>
+          </block>
+        </value>
+        <value name="img_src">
+          <block type="text" id="61">
+            <field name="TEXT">./game_starter2/assets/white_hair_pixie_w_bow.png</field>
+          </block>
+        </value>
+        <value name="width">
+          <block type="math_number" id="62">
+            <field name="NUM">64</field>
+          </block>
+        </value>
+        <value name="height">
+          <block type="math_number" id="63">
+            <field name="NUM">64</field>
+          </block>
+        </value>
+        <value name="num_frames">
+          <block type="math_number" id="64">
+            <field name="NUM">273</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="65" x="-102" y="331">
+    <mutation></mutation>
+    <field name="NAME">update</field>
+    <statement name="STACK">
+      <block type="phaser_set_obj_body_props" id="66" inline="true">
+        <field name="prop">velocity.x</field>
+        <field name="game_obj">p</field>
+        <value name="prop_val">
+          <block type="math_number" id="67">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <next>
+          <block type="phaser_set_obj_body_props" id="68" inline="true">
+            <field name="prop">velocity.y</field>
+            <field name="game_obj">p</field>
+            <value name="prop_val">
+              <block type="math_number" id="69">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="70" inline="false">
+                <mutation elseif="1" else="1"></mutation>
+                <value name="IF0">
+                  <block type="phaser_get_curs_key_state" id="71">
+                    <field name="c_key">left</field>
+                    <field name="state">isDown</field>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="phaser_set_obj_body_props" id="72" inline="true">
+                    <field name="prop">velocity.x</field>
+                    <field name="game_obj">p</field>
+                    <value name="prop_val">
+                      <block type="math_number" id="73">
+                        <field name="NUM">-175</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="phaser_play_animation" id="74" inline="true">
+                        <field name="anim_id">left</field>
+                        <field name="game_obj">p</field>
+                        <value name="framerate">
+                          <block type="math_number" id="75">
+                            <field name="NUM">6</field>
+                          </block>
+                        </value>
+                        <value name="loop">
+                          <block type="logic_boolean" id="76">
+                            <field name="BOOL">TRUE</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <value name="IF1">
+                  <block type="phaser_get_curs_key_state" id="77">
+                    <field name="c_key">right</field>
+                    <field name="state">isDown</field>
+                  </block>
+                </value>
+                <statement name="DO1">
+                  <block type="phaser_play_animation" id="78" inline="true">
+                    <field name="anim_id">right</field>
+                    <field name="game_obj">p</field>
+                    <value name="framerate">
+                      <block type="math_number" id="79">
+                        <field name="NUM">6</field>
+                      </block>
+                    </value>
+                    <value name="loop">
+                      <block type="logic_boolean" id="80">
+                        <field name="BOOL">TRUE</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="phaser_set_obj_body_props" id="81" inline="true">
+                        <field name="prop">velocity.x</field>
+                        <field name="game_obj">p</field>
+                        <value name="prop_val">
+                          <block type="math_number" id="82">
+                            <field name="NUM">175</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="controls_if" id="83" inline="false">
+                    <mutation elseif="1" else="1"></mutation>
+                    <value name="IF0">
+                      <block type="phaser_get_curs_key_state" id="84">
+                        <field name="c_key">up</field>
+                        <field name="state">isDown</field>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="phaser_play_animation" id="85" inline="true">
+                        <field name="anim_id">up</field>
+                        <field name="game_obj">p</field>
+                        <value name="framerate">
+                          <block type="math_number" id="86">
+                            <field name="NUM">6</field>
+                          </block>
+                        </value>
+                        <value name="loop">
+                          <block type="logic_boolean" id="87">
+                            <field name="BOOL">TRUE</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="phaser_set_obj_body_props" id="88" inline="true">
+                            <field name="prop">velocity.y</field>
+                            <field name="game_obj">p</field>
+                            <value name="prop_val">
+                              <block type="math_number" id="89">
+                                <field name="NUM">-175</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <value name="IF1">
+                      <block type="phaser_get_curs_key_state" id="90">
+                        <field name="c_key">down</field>
+                        <field name="state">isDown</field>
+                      </block>
+                    </value>
+                    <statement name="DO1">
+                      <block type="phaser_play_animation" id="91" inline="true">
+                        <field name="anim_id">down</field>
+                        <field name="game_obj">p</field>
+                        <value name="framerate">
+                          <block type="math_number" id="92">
+                            <field name="NUM">6</field>
+                          </block>
+                        </value>
+                        <value name="loop">
+                          <block type="logic_boolean" id="93">
+                            <field name="BOOL">TRUE</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="phaser_set_obj_body_props" id="94" inline="true">
+                            <field name="prop">velocity.y</field>
+                            <field name="game_obj">p</field>
+                            <value name="prop_val">
+                              <block type="math_number" id="95">
+                                <field name="NUM">175</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="controls_if" id="96" inline="false">
+                        <value name="IF0">
+                          <block type="logic_negate" id="97" inline="false">
+                            <value name="BOOL">
+                              <block type="variables_get" id="98">
+                                <field name="VAR">is_firing</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="phaser_stop_animation" id="99">
+                            <field name="game_obj">p</field>
+                          </block>
+                        </statement>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="127" x="616" y="838">
+    <mutation></mutation>
+    <field name="NAME">stop_fire_weapon</field>
+    <statement name="STACK">
+      <block type="variables_set" id="128" inline="true">
+        <field name="VAR">is_firing</field>
+        <value name="VALUE">
+          <block type="logic_boolean" id="129">
+            <field name="BOOL">FALSE</field>
+          </block>
+        </value>
+        <next>
+          <block type="phaser_stop_animation" id="130">
+            <field name="game_obj">p</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="131" x="275" y="919">
+    <mutation></mutation>
+    <field name="NAME">fire_weapon</field>
+    <statement name="STACK">
+      <block type="variables_set" id="132" inline="true">
+        <field name="VAR">is_firing</field>
+        <value name="VALUE">
+          <block type="logic_boolean" id="133">
+            <field name="BOOL">TRUE</field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="134" inline="false">
+            <value name="IF0">
+              <block type="logic_compare" id="135" inline="true">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="phaser_get_obj_body_props" id="136">
+                    <field name="prop">facing</field>
+                    <field name="game_obj">p</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="phaser_direction" id="137">
+                    <field name="dir">UP</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="phaser_play_animation" id="138" inline="true">
+                <field name="anim_id">fireUp</field>
+                <field name="game_obj">p</field>
+                <value name="framerate">
+                  <block type="math_number" id="139">
+                    <field name="NUM">13</field>
+                  </block>
+                </value>
+                <value name="loop">
+                  <block type="logic_boolean" id="140">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="controls_if" id="141" inline="false">
+                <value name="IF0">
+                  <block type="logic_compare" id="142" inline="true">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="phaser_get_obj_body_props" id="143">
+                        <field name="prop">facing</field>
+                        <field name="game_obj">p</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="phaser_direction" id="144">
+                        <field name="dir">RIGHT</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="phaser_play_animation" id="145" inline="true">
+                    <field name="anim_id">fireRight</field>
+                    <field name="game_obj">p</field>
+                    <value name="framerate">
+                      <block type="math_number" id="146">
+                        <field name="NUM">13</field>
+                      </block>
+                    </value>
+                    <value name="loop">
+                      <block type="logic_boolean" id="147">
+                        <field name="BOOL">TRUE</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="controls_if" id="148" inline="false">
+                    <value name="IF0">
+                      <block type="logic_compare" id="149" inline="true">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="phaser_get_obj_body_props" id="150">
+                            <field name="prop">facing</field>
+                            <field name="game_obj">p</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="phaser_direction" id="151">
+                            <field name="dir">LEFT</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="phaser_play_animation" id="152" inline="true">
+                        <field name="anim_id">fireLeft</field>
+                        <field name="game_obj">p</field>
+                        <value name="framerate">
+                          <block type="math_number" id="153">
+                            <field name="NUM">13</field>
+                          </block>
+                        </value>
+                        <value name="loop">
+                          <block type="logic_boolean" id="154">
+                            <field name="BOOL">TRUE</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="controls_if" id="155" inline="false">
+                        <value name="IF0">
+                          <block type="logic_compare" id="156" inline="true">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="phaser_get_obj_body_props" id="157">
+                                <field name="prop">facing</field>
+                                <field name="game_obj">p</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="phaser_direction" id="158">
+                                <field name="dir">DOWN</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="phaser_play_animation" id="159" inline="true">
+                            <field name="anim_id">fireDown</field>
+                            <field name="game_obj">p</field>
+                            <value name="framerate">
+                              <block type="math_number" id="160">
+                                <field name="NUM">13</field>
+                              </block>
+                            </value>
+                            <value name="loop">
+                              <block type="logic_boolean" id="161">
+                                <field name="BOOL">TRUE</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

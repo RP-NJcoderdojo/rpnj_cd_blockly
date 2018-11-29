@@ -1,0 +1,427 @@
+    <category id="catLogic">
+      <block type="controls_if"></block>
+      <block type="logic_compare"></block>
+      <block type="logic_operation"></block>
+      <block type="logic_negate"></block>
+      <block type="logic_boolean"></block>
+      <block type="logic_null"></block>
+      <block type="logic_ternary"></block>
+    </category>
+    <category id="catLoops">
+      <block type="controls_repeat_ext">
+        <value name="TIMES">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+      </block>
+      <block type="controls_whileUntil"></block>
+      <block type="controls_for">
+        <value name="FROM">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+        <value name="BY">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+      </block>
+      <block type="controls_forEach"></block>
+      <block type="controls_flow_statements"></block>
+    </category>
+    <category id="catMath">
+      <block type="math_number"></block>
+      <block type="math_arithmetic"></block>
+      <block type="math_single"></block>
+      <block type="math_trig"></block>
+      <block type="math_constant"></block>
+      <block type="math_number_property"></block>
+      <block type="math_change">
+        <value name="DELTA">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+      </block>
+      <block type="math_round"></block>
+      <block type="math_on_list"></block>
+      <block type="math_modulo"></block>
+      <block type="math_constrain">
+        <value name="LOW">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="HIGH">
+          <block type="math_number">
+            <field name="NUM">100</field>
+          </block>
+        </value>
+      </block>
+      <block type="math_random_int">
+        <value name="FROM">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number">
+            <field name="NUM">100</field>
+          </block>
+        </value>
+      </block>
+      <block type="math_random_float"></block>
+    </category>
+    <category id="catText">
+      <block type="text"></block>
+      <block type="text_join"></block>
+      <block type="text_append">
+        <value name="TEXT">
+          <block type="text"></block>
+        </value>
+      </block>
+      <block type="text_length"></block>
+      <block type="text_isEmpty"></block>
+      <block type="text_indexOf">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR" class="textVar">...</field>
+          </block>
+        </value>
+      </block>
+      <block type="text_charAt">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR" class="textVar">...</field>
+          </block>
+        </value>
+      </block>
+      <block type="text_getSubstring">
+        <value name="STRING">
+          <block type="variables_get">
+            <field name="VAR" class="textVar">...</field>
+          </block>
+        </value>
+      </block>
+      <block type="text_changeCase"></block>
+      <block type="text_trim"></block>
+      <block type="text_print"></block>
+      <block type="text_prompt_ext">
+        <value name="TEXT">
+          <block type="text"></block>
+        </value>
+      </block>
+    </category>
+    <category id="catLists">
+      <block type="lists_create_empty"></block>
+      <block type="lists_create_with"></block>
+      <block type="lists_repeat">
+        <value name="NUM">
+          <block type="math_number">
+            <field name="NUM">5</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_length"></block>
+      <block type="lists_isEmpty"></block>
+      <block type="lists_indexOf">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR" class="listVar">...</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_getIndex">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR" class="listVar">...</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_setIndex">
+        <value name="LIST">
+          <block type="variables_get">
+            <field name="VAR" class="listVar">...</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_getSublist">
+        <value name="LIST">
+          <block type="variables_get">
+            <field name="VAR" class="listVar">...</field>
+          </block>
+        </value>
+      </block>
+    </category>
+    <category id="catColour">
+      <block type="colour_picker"></block>
+      <block type="colour_random"></block>
+      <block type="colour_rgb">
+        <value name="RED">
+          <block type="math_number">
+            <field name="NUM">100</field>
+          </block>
+        </value>
+        <value name="GREEN">
+          <block type="math_number">
+            <field name="NUM">50</field>
+          </block>
+        </value>
+        <value name="BLUE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+      <block type="colour_blend">
+        <value name="COLOUR1">
+          <block type="colour_picker">
+            <field name="COLOUR">#ff0000</field>
+          </block>
+        </value>
+        <value name="COLOUR2">
+          <block type="colour_picker">
+            <field name="COLOUR">#3333ff</field>
+          </block>
+        </value>
+        <value name="RATIO">
+          <block type="math_number">
+            <field name="NUM">0.5</field>
+          </block>
+        </value>
+      </block>
+    </category>
+
+<!-- ===== TODO - Breakout to Phaser Include ===== -->
+	<category id="Phaser" name="Phaser">
+        <category id="game" name="Game">
+                <block type="phaser_game"></block>
+                <block type="phaser_set_bg_color"></block>
+                <block type="phaser_camera_follow"></block>
+                <block type="phaser_stop_camera_follow"></block>
+                <block type="phaser_move_camera"></block>
+                <block type="phaser_get_world_property"></block>
+                <block type="phaser_time_now"></block>
+                <block type="phaser_random_int_range"></block>
+                <block type="phaser_get_game_property"></block>
+                <block type="phaser_world_center_x"></block>
+                <block type="phaser_world_center_y"></block>
+                <!--<block type="phaser_world_width"></block>
+                <block type="phaser_world_height"></block>-->
+                <block type="phaser_direction"></block>
+                <block type="phaser_set_world_bounds"></block>
+				<block type="phaser_crossorigin"></block>
+        </category>
+        <category id="physics" name="Physics">
+                <block type="phaser_startphysics"></block>
+                <block type="phaser_enablephysics"></block>
+                <block type="phaser_obj_collide"></block>
+                <block type="phaser_set_obj_body_props"></block>
+                <block type="phaser_physics"></block>
+                <block type="phaser_chkcoll"></block>
+                <block type="phaser_set_phys_sys_props"></block>
+                <block type="phaser_get_obj_body_props"></block>
+                <block type="phaser_create_physics_grp"></block>
+        </category>
+        <category id="assets" name="Assets">
+                <block type="phaser_loadatlas"></block>
+                <block type="phaser_loadimage"></block>
+                <block type="phaser_loadaudio"></block>
+                <block type="phaser_load_spritesheet"></block>
+                <block type="phaser_add_tilesprite"></block>
+                <block type="phaser_addsprite"></block>
+                <block type="phaser_load_tilemap"></block>
+                <block type="phaser_add_tilemap"></block>
+				<block type="phaser_get_image_prop"></block>
+        </category>
+        <category id="objects" name="Game Objects">
+                <block type="phaser_set_game_obj_props"></block>
+                <block type="phaser_get_game_obj_props"></block>
+                <block type="phaser_kill_obj"></block>
+                <block type="phaser_reset_obj_pos"></block>
+                <block type="phaser_move_obj_to"></block>
+                <block type="phaser_distance_between"></block>
+                <block type="phaser_new_point"></block>
+        </category>
+        <category id="group" name="Group">
+                <block type="phaser_creategrp"></block>
+                <block type="phaser_addtogrp"></block>
+				<block type="phaser_add_to_grp_ret"></block>
+                <block type="phaser_group_removeall"></block>
+                <block type="phaser_set_all_obj"></block>
+                <block type="phaser_call_all_obj"></block>
+				<block type="phaser_foreach_grp_alive"></block>
+				<block type="phaser_group_getfirstdead"></block>
+				<block type="phaser_create_mult_grp_item"></block>
+        </category>
+        <category id="animation" name="Animation">
+                <block type="phaser_add_animation"></block>
+                <block type="phaser_add_animation_single"></block>
+                <block type="phaser_add_animation_range"></block>
+                <block type="phaser_play_animation"></block>
+                <block type="phaser_stop_animation"></block>
+        </category>
+        <category id="sound" name="Sound">
+                <block type="phaser_add_audio"></block>
+                <block type="phaser_play_audio"></block>
+                <block type="phaser_stop_audio"></block>
+        </category>
+        <category id="timers" name="Timers">
+                <block type="phaser_timer_start"></block>
+                <block type="phaser_timer_stop"></block>
+                <block type="phaser_time_units"></block>
+                <block type="phaser_loop_timer_event"></block>
+        </category>
+        <category id="input" name="Input">
+                <block type="phaser_add_cursor_keys"></block>
+                <block type="phaser_add_a_key"></block>
+                <block type="phaser_get_curs_key_state"></block>
+                <block type="phaser_input_add"></block>
+                <block type="phaser_on_click_touch"></block>
+        </category>
+        <category id="phaser_text" name="Text">
+                <block type="phaser_add_text"></block>
+                <block type="phaser_set_text"></block>
+                <block type="phaser_set_text_shadow"></block>
+            
+        </category>
+        <category id="map" name="Game Map">
+                <block type="phaser_create_maplayer"></block>
+                <block type="phaser_add_map_tileset"></block>
+                <block type="phaser_resize_world_layer"></block>
+                <block type="phaser_autoscroll_tile_sprite"></block>
+                <block type="phaser_set_map_collision"></block>
+                <block type="phaser_set_map_collision_between"></block>
+                <block type="phaser_tileindex_callback"></block>
+        </category>
+
+        <category id="automation" name="Automation">
+            <block type="phaser_create_tween"></block>
+            <block type="phaser_tween_to_settings"></block>
+            <block type="phaser_start_tween"></block>
+        </category>
+    </category>
+<!-- ============================================= -->
+
+<!-- ===== TODO - Breakout to Minecraft Include ===== -->
+	<category id="Minecraft" name="Minecraft">
+		<category id="basic" name="Basic">
+			<block type="functions_mc_func"></block>
+			<block type="mc_func_return"></block>
+			<block type="mc_print_msg"></block>
+			<block type="mc_entitytypes"></block>
+			<block type="mc_make_explosion"></block>
+			<block type="mc_set_timeout"></block>
+		</category>	
+		<category id="builder" name="Builder">
+			<block type="mc_start_builder"></block>
+			<block type="mc_start_builder_at"></block>
+			<block type="mc_drone_up"></block>
+			<block type="mc_drone_down"></block>
+			<block type="mc_drone_left"></block>
+			<block type="mc_drone_right"></block>
+			<block type="mc_drone_fwd"></block>			
+			<block type="mc_drone_back"></block>
+			<block type="mc_drone_turn"></block>
+			<block type="mc_blocks"></block>
+			<block type="mc_clear_area"></block>
+			<block type="mc_box"></block>
+			<block type="mc_box0"></block>
+			<block type="mc_prism"></block>
+			<block type="mc_prism0"></block>
+			<block type="mc_hemi"></block>
+			<block type="mc_hemi0"></block>
+			<block type="mc_drone_cottage"></block>
+			<block type="mc_drone_cottage_road"></block>
+			<block type="mc_drone_castle"></block>
+			<block type="mc_drone_temple"></block>
+			<block type="mc_drone_rainbow"></block>
+			<block type="mc_checkpoint"></block>
+			<block type="mc_moveto_chkpt"></block>
+		</category>	
+		<category id="mcEvents" name="Events">
+			<block type="mc_reg_event"></block>
+			<block type="mc_event_info"></block>
+		 </category>
+	 </category>
+<!-- ============================================= -->
+
+<!-- ===== TODO - Breakout to CircuitPython Include ===== -->
+   <category id="circuitpython" name="CircuitPython">
+      <category id="cpx" name="CircuitPythonExpress">
+		    <block type="import_cpx"></block>
+        <label text="Red LED" web-class="myLabelStyle"></label>
+        <block type="redled">
+          <value name="text">
+            <shadow type="textinline">
+              <field name="text">True</field>
+            </shadow>
+          </value>
+        </block>
+        <category id="crickit" name="Crickit">
+            <block type="import_board"></block>
+        </category>
+      </category>
+    </category>
+<!-- ============================================= -->
+
+<!-- ===== TODO - Breakout to Phaser Include ===== -->
+	<category id="misc" name="Misc">
+			<block type="var_addchild"></block>
+			<block type="var_getchild"></block>
+			<block type="functions_new_func"></block>
+			<block type="jsobj_create_with"></block>
+			<block type="misc_key_val_pair"></block>
+			<block type="new_line_char"></block>
+	</category>
+<!-- ============================================= -->
+
+	<category id="catVariables" custom="VARIABLE"></category>
+  <category id="catFunctions" custom="PROCEDURE"></category>
+
+        <!--<block type="phaser_enable_obj_physics"></block>-->
+<!--    
+        <block type="phaser_game"></block>
+        <block type="phaser_loadatlas"></block>
+        <block type="phaser_loadimage"></block>
+        <block type="phaser_startphysics"></block>
+        <block type="phaser_creategrp"></block>
+        <block type="phaser_addtogrp"></block>
+        <block type="phaser_add_tilesprite"></block>
+        <block type="phaser_load_spritesheet"></block>
+        <block type="phaser_chkcoll"></block>
+        <block type="phaser_addsprite"></block>
+        <block type="phaser_enablephysics"></block>
+        <block type="phaser_set_game_obj_props"></block>
+        <block type="phaser_get_game_obj_props"></block>
+        <block type="phaser_obj_body_props"></block>
+        <block type="phaser_physics"></block>
+        <! - -<block type="phaser_enable_obj_physics"></block> - ->
+        <block type="phaser_obj_collide"></block>
+        <block type="phaser_world_center_x"></block>
+        <block type="phaser_world_center_y"></block>
+        <block type="phaser_add_text"></block>
+        <block type="phaser_kill_obj"></block>
+        <block type="phaser_call_all_obj"></block>
+        <block type="var_addchild"></block>
+        <block type="functions_new_func"></block>
+        <block type="phaser_load_tilemap"></block>
+        <block type="phaser_add_animation"></block>
+        <block type="phaser_play_animation"></block>
+        <block type="phaser_set_bg_color"></block>
+        <block type="phaser_add_cursor_keys"></block>
+        <block type="phaser_add_a_key"></block>
+        <block type="phaser_get_curs_key_state"></block>
+        <block type="phaser_add_tilemap"></block>
+        <block type="phaser_create_maplayer"></block>
+        <block type="phaser_add_map_tileset"></block>
+        <block type="phaser_resize_world_layer"></block>
+        <block type="phaser_camera_follow"></block>
+-->

@@ -1,0 +1,169 @@
+<html> 
+<head>
+ <title>RP NJ Python Playground</title>
+   <!-- Create a simple CodeMirror instance -->
+   <link rel="stylesheet" href="../lib/codemirror.css">
+   
+   <script type="text/javascript" src="../lib/codemirror.js"></script>
+  <script type="text/javascript" src="../lib/mode/python/python.js"></script>
+  <style>
+	body {
+		background: #2a2a2a;
+	}
+	.white_text {
+		color: #FFFFFF;
+	}
+	.masthead {
+		/*width: 792px;*/
+    height: 95px;
+		/*margin-left: 20%;*/
+	}
+  #output {
+    background: white;
+    display: block;
+    width: 800px;
+    height: 300px;
+  }
+  #canvas {
+  	background: white;
+  	display: block;
+  	width: 800px;
+  	height: 400px;
+		/*border: 1px solid #F00;*/
+  }
+  #code {
+		vertical-align: top;
+		width: 1600px;
+  }
+	h3 {
+		height: 15px; 
+	}
+  .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;  width: 1600px; height: 400px;}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script> 
+<script src="../dist/skulpt.min.js" type="text/javascript"></script> 
+<script src="../dist/skulpt-stdlib.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+    // output functions are configurable.  This one just appends some text
+    // to a pre element.
+    function outf(text) { 
+        var mypre = document.getElementById("output"); 
+        mypre.innerHTML = mypre.innerHTML + text; 
+    } 
+    function builtinRead(x) {
+        if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+                throw "File not found: '" + x + "'";
+        return Sk.builtinFiles["files"][x];
+    }
+    // Here's everything you need to run a python program in skulpt
+    // grab the code from your textarea
+    // get a reference to your pre element for output
+    // configure the output function
+    // call Sk.importMainWithBody()
+    function runit() { 
+       //var prog = document.getElementById("code").value;
+      console.log(CodeMirror.doc);
+       var prog = CodeMirror.doc.getValue();
+       var mypre = document.getElementById("output"); 
+       mypre.innerHTML = ''; 
+       Sk.pre = "output";
+       Sk.configure({output:outf, read:builtinRead}); 
+       (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'canvas';
+       var myPromise = Sk.misceval.asyncToPromise(function() {
+           return Sk.importMainWithBody("<stdin>", false, prog, true);
+       });
+       myPromise.then(function(mod) {
+           console.log('success');
+       },
+           function(err) {
+           console.log(err.toString());
+       });
+    } 
+  </script> 
+</head> 
+
+<body> 
+  <img class="masthead" src="/images/rpnj_CD_mast.png" border="0">
+
+  <h3 class="white_text">Python Playground</h3> 
+<table cellspacing="5" width="1600px;">
+  <tr>
+    <th class="white_text" colspan="2">Code</th>
+	</tr>
+  <tr>
+
+	<td valign="top" style="background: white;" colspan="2">
+      <form>
+<textarea id="code" name="code" cols="50" rows="25">
+import turtle
+
+t = turtle.Turtle()
+t.forward(100)
+
+print "Hello World" 
+
+</textarea>
+        <br />
+        <button type="button" onclick="runit()">Run</button> 
+      </form> 
+    </td>
+	</tr>
+	<tr>
+		<th class="white_text">Output</th>
+    <th class="white_text">Console</th>
+  </tr>
+  <tr>
+    <td valign="top" style="background: white;">
+      <!-- If you want turtle graphics include a canvas -->
+      <div id="canvas"></div>
+    </td>
+    <td valign="top" style="background: white;">
+      <div id="output" >&nbsp;</div>
+      <br />
+    </td>
+ </tr>
+</table>
+   <script>
+        /*var editor = CodeMirror.fromTextArea(code, {
+          lineNumbers: true
+        });*/
+       var editor = CodeMirror.fromTextArea(
+         document.getElementById("code"), 
+         {
+            mode: {
+              name: "python",
+              version: 2,
+              singleLineStringErrors: false
+            },
+            lineNumbers: true,
+            indentUnit: 4//,
+            //matchBrackets: true
+        });
+
+      // Here's everything you need to run a python program in skulpt
+      // grab the code from your textarea
+      // get a reference to your pre element for output
+      // configure the output function
+      // call Sk.importMainWithBody()
+      function runit() { 
+         //var prog = document.getElementById("code").value;
+        //console.log(editor);
+         var prog = editor.doc.getValue();
+         var mypre = document.getElementById("output"); 
+         mypre.innerHTML = ''; 
+         Sk.pre = "output";
+         Sk.configure({output:outf, read:builtinRead}); 
+         (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'canvas';
+         var myPromise = Sk.misceval.asyncToPromise(function() {
+             return Sk.importMainWithBody("<stdin>", false, prog, true);
+         });
+         myPromise.then(function(mod) {
+             console.log('success');
+         },
+             function(err) {
+             console.log(err.toString());
+         });
+      } 
+  </script>
+</body>
+</html> 
