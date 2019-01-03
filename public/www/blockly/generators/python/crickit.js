@@ -98,10 +98,11 @@ Blockly.Python['crkt_neo_neovarnew'] = function (block) {
 
 Blockly.Python['crkt_neo_setneo'] = function(block) {
    var variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
+   var dropdown_bright = block.getFieldValue('bright');
    var text_numPix = Blockly.Python.valueToCode(block, 'numPix', Blockly.Python.ORDER_ATOMIC)
         || '0';
   // TODO: Assemble JavaScript into code variable.
-  var code = 'crickit.init_neopixel('+text_numPix+')\n';
+  var code = 'crickit.init_neopixel('+text_numPix+',brightness='+dropdown_bright+')\n';
   code = code + variable_name + '=' + 'crickit.neopixel\n';
   return code;
 };
