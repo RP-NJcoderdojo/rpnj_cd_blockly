@@ -1,0 +1,209 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="import_time" id="1" x="36" y="10">
+    <next>
+      <block type="import_board" id="2">
+        <next>
+          <block type="importneo" id="3">
+            <next>
+              <block type="setneo" id="4" inline="true">
+                <field name="pin">board.A1</field>
+                <field name="pixorder">neopixel.GRB</field>
+                <value name="numPix">
+                  <block type="math_number" id="5">
+                    <field name="NUM">30</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_whileUntil" id="6" inline="false">
+                    <field name="MODE">WHILE</field>
+                    <value name="BOOL">
+                      <block type="logic_boolean" id="7">
+                        <field name="BOOL">TRUE</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="fill" id="8" inline="true">
+                        <field name="typestrip">ext</field>
+                        <value name="textRed">
+                          <block type="math_number" id="9">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="textGreen">
+                          <block type="math_number" id="10">
+                            <field name="NUM">255</field>
+                          </block>
+                        </value>
+                        <value name="textBlue">
+                          <block type="math_number" id="11">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="neoshow" id="12">
+                            <field name="NAME">np</field>
+                            <next>
+                              <block type="time_sleep" id="13" inline="true">
+                                <value name="sleeptime">
+                                  <block type="math_number" id="14">
+                                    <field name="NUM">5</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="fill" id="15" inline="true">
+                                    <field name="typestrip">ext</field>
+                                    <value name="textRed">
+                                      <block type="math_number" id="16">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                    <value name="textGreen">
+                                      <block type="math_number" id="17">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                    <value name="textBlue">
+                                      <block type="math_number" id="18">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="neoshow" id="19">
+                                        <field name="NAME">np</field>
+                                        <next>
+                                          <block type="time_sleep" id="20" inline="true">
+                                            <value name="sleeptime">
+                                              <block type="math_number" id="21">
+                                                <field name="NUM">5</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="import_cpx" id="22" disabled="true" x="932" y="54">
+    <next>
+      <block type="crkt_neo_setneo" id="23" inline="true" disabled="true">
+        <field name="NAME">np</field>
+        <value name="numPix">
+          <block type="math_number" id="24">
+            <field name="NUM">30</field>
+          </block>
+        </value>
+      </block>
+    </next>
+  </block>
+  <block type="crkt_neo_setneo" id="25" inline="true" disabled="true" x="774" y="134">
+    <field name="NAME">np</field>
+    <value name="numPix">
+      <block type="math_number" id="26">
+        <field name="NUM">40</field>
+      </block>
+    </value>
+  </block>
+  <block type="controls_if" id="27" inline="false" disabled="true" x="825" y="224">
+    <mutation elseif="2"></mutation>
+    <value name="IF0">
+      <block type="logic_operation" id="28" inline="true">
+        <field name="OP">AND</field>
+        <value name="A">
+          <block type="button" id="29">
+            <field name="button">a</field>
+          </block>
+        </value>
+        <value name="B">
+          <block type="button" id="30">
+            <field name="button">b</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="DO0">
+      <block type="fill" id="31" inline="true">
+        <field name="typestrip">ext</field>
+        <value name="textRed">
+          <block type="math_number" id="32">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="textGreen">
+          <block type="math_number" id="33">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="textBlue">
+          <block type="math_number" id="34">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <value name="IF1">
+      <block type="button" id="35">
+        <field name="button">a</field>
+      </block>
+    </value>
+    <statement name="DO1">
+      <block type="fill" id="36" inline="true">
+        <field name="typestrip">ext</field>
+        <value name="textRed">
+          <block type="math_number" id="37">
+            <field name="NUM">255</field>
+          </block>
+        </value>
+        <value name="textGreen">
+          <block type="math_number" id="38">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="textBlue">
+          <block type="math_number" id="39">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <value name="IF2">
+      <block type="button" id="40">
+        <field name="button">b</field>
+      </block>
+    </value>
+    <statement name="DO2">
+      <block type="fill" id="41" inline="true">
+        <field name="typestrip">ext</field>
+        <value name="textRed">
+          <block type="math_number" id="42">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="textGreen">
+          <block type="math_number" id="43">
+            <field name="NUM">255</field>
+          </block>
+        </value>
+        <value name="textBlue">
+          <block type="math_number" id="44">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>

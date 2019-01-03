@@ -137,3 +137,19 @@ Blockly.Python['crkt_sig_pin_mode'] = function(block) {
   var code = 'crickit.seesaw.pin_mode(' + dropdown_sig_num + ',' + dropdown_sig_val + ')\n';
   return code;
 };
+
+Blockly.Python['crkt_touched'] = function (block) {
+    var dropdown_pad = block.getFieldValue('pad');
+    // TODO: Assemble Python into code variable.
+    var code = 'crickit.' + dropdown_pad + '.value';
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC];
+};
+
+Blockly.Python['crkt_touch_rawval'] = function (block) {
+    var dropdown_pad = block.getFieldValue('pad');
+    // TODO: Assemble Python into code variable.
+    var code = 'crickit.' + dropdown_pad + '.raw_value';
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC];
+};

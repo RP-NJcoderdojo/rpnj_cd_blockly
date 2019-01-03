@@ -242,3 +242,31 @@ Blockly.Blocks['crkt_neo_neovarnew'] = {
         this.setHelpUrl('http://www.example.com/');
       }
     };
+
+    Blockly.Blocks['crkt_touched'] = {
+      init: function () {
+        this.appendDummyInput()
+            .appendField("Crickit Pad ")
+            .appendField(new Blockly.FieldDropdown([["1", "touch_1"], ["2", "touch_2"], ["3", "touch_3"], ["4", "touch_4"]]), "pad")
+            .appendField(" is Being Touched");
+        this.setInputsInline(true);
+        this.setOutput(true, null);
+        this.setColour(cpxcol);
+        this.setTooltip("");
+        this.setHelpUrl("");
+      }
+    };
+    
+    Blockly.Blocks['crkt_touch_rawval'] = {
+      init: function () {
+        this.appendDummyInput()
+            .appendField("Get Crickit Pad ")
+            .appendField(new Blockly.FieldDropdown([["1", "touch_1"], ["2", "touch_2"], ["3", "touch_3"], ["4", "touch_4"]]), "pad")
+            .appendField(" Raw Value");
+        this.setInputsInline(true);
+        this.setOutput(true, null);
+        this.setColour(cpxcol);
+        this.setTooltip("");
+        this.setHelpUrl("");
+      }
+    };

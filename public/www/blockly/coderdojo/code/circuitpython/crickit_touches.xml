@@ -1,0 +1,126 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="import_crickit" id="4" x="16" y="19">
+    <next>
+      <block type="controls_whileUntil" id="16" inline="false">
+        <field name="MODE">WHILE</field>
+        <value name="BOOL">
+          <block type="logic_boolean" id="24">
+            <field name="BOOL">TRUE</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="controls_if" id="32" inline="false">
+            <value name="IF0">
+              <block type="crkt_touch_rawval" id="94">
+                <field name="pad">touch_1</field>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="text_print" id="61" inline="false">
+                <value name="TEXT">
+                  <block type="text_join" id="115" inline="false">
+                    <mutation items="2"></mutation>
+                    <value name="ADD0">
+                      <block type="text" id="79">
+                        <field name="TEXT">Pad 1 Raw value</field>
+                      </block>
+                    </value>
+                    <value name="ADD1">
+                      <block type="crkt_touch_rawval" id="116">
+                        <field name="pad">touch_1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="controls_if" id="80" inline="false">
+                <value name="IF0">
+                  <block type="crkt_touch_rawval" id="95">
+                    <field name="pad">touch_2</field>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="text_print" id="82" inline="false">
+                    <value name="TEXT">
+                      <block type="text_join" id="117" inline="false">
+                        <mutation items="2"></mutation>
+                        <value name="ADD0">
+                          <block type="text" id="118">
+                            <field name="TEXT">Pad 2 Raw value</field>
+                          </block>
+                        </value>
+                        <value name="ADD1">
+                          <block type="crkt_touch_rawval" id="119">
+                            <field name="pad">touch_2</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="controls_if" id="84" inline="false">
+                    <value name="IF0">
+                      <block type="crkt_touch_rawval" id="96">
+                        <field name="pad">touch_3</field>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="text_print" id="86" inline="false">
+                        <value name="TEXT">
+                          <block type="text_join" id="123" inline="false">
+                            <mutation items="2"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id="124">
+                                <field name="TEXT">Pad 3 Raw value</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="crkt_touch_rawval" id="125">
+                                <field name="pad">touch_3</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="controls_if" id="88" inline="false">
+                        <value name="IF0">
+                          <block type="crkt_touch_rawval" id="97">
+                            <field name="pad">touch_4</field>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="text_print" id="90" inline="false">
+                            <value name="TEXT">
+                              <block type="text_join" id="120" inline="false">
+                                <mutation items="2"></mutation>
+                                <value name="ADD0">
+                                  <block type="text" id="121">
+                                    <field name="TEXT">Pad 4 Raw value</field>
+                                  </block>
+                                </value>
+                                <value name="ADD1">
+                                  <block type="crkt_touch_rawval" id="122">
+                                    <field name="pad">touch_4</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

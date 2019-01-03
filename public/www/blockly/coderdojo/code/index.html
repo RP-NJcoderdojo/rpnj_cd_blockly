@@ -22,6 +22,8 @@
   <script src="../../generators/python/std_python.js"></script>
   <script src="../../blocks/neopixel.js"></script>
   <script src="../../generators/python/neopixel.js"></script>
+  <script src="../../blocks/matrix8x8x2.js"></script>
+  <script src="../../generators/python/matrix8x8x2.js"></script>
   <script type="text/javascript" src="BlobBuilder.min.js"></script>
   <script type="text/javascript" src="FileSaver.min.js"></script>
   <!--<script src="../../lua_compressed.js"></script>-->
@@ -580,6 +582,7 @@
 <!-- ===== TODO - Breakout to CircuitPython Include ===== -->
    <category id="circuitpython" name="CircuitPython">
       <block type="import_board"></block>
+      <block type="import_busio"></block>
       <category id="cpx" name="CircuitPythonExp">
         <block type="import_cpx"></block>
         <label text="Red LED" web-class="myLabelStyle"></label>
@@ -685,8 +688,17 @@
 
         <block type="neoshow"></block>
         <block type="neoclear"></block>
-      </category>      
+      </category>
 
+      <category id="matrix8x8x2" name="Bicolor8x8Matrix">
+        <block type="mx_8_8_2_init"></block>
+        <block type="mx_8_8_2_auto"></block>
+        <block type="mx_8_8_2_bright"></block>
+        <block type="mx_8_8_2_fill"></block>
+        <block type="mx_8_8_2_show"></block>
+        <block type="mx_8_8_2_pixel"></block>
+      </category>
+      
       <category id="crickit" name="Crickit">
         <block type="import_crickit"></block>
         <category id="crkt_servo" name="Crickit Servo">
@@ -708,6 +720,11 @@
           <block type="crkt_dig_write"></block>
           <block type="crkt_sig_pin_mode"></block>
         </category>
+        <category id="crkt_touch" name="Crickit Touch">
+          <block type="crkt_touched"></block>
+          <block type="crkt_touch_rawval"></block>
+        </category>
+
       </category>
 <!-- ============================================= -->
 
